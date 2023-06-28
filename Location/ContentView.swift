@@ -6,49 +6,28 @@
 //
 
 import SwiftUI
-
 import os
 import CoreLocation
 
-struct ContentView: View {
-    @ObservedObject var locationsHandler = LocationsHandler.shared
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            Text("Location: \(locationsHandler.lastLocation.coordinate.latitude) \(locationsHandler.lastLocation.coordinate.longitude)")
-                .padding(10)
-            Spacer()
-        }
-        .onAppear {
-            self.locationsHandler.startLocationUpdates()
-        }
-    }
-}
-
-
-#Preview {
-    ContentView()
-}
+///
+/// Globale variabler
+///
+var latitude: Double = 0.00
+var longitude: Double = 0.00
 
 @MainActor class LocationsHandler: ObservableObject {
-    let logger = Logger(subsystem: "com.janHovland.liveUpdatesSample", category: "LocationsHandler")
     
-    static let shared = LocationsHandler()  // Create a single, shared instance of the object.
-
+    static let shared = LocationsHandler()
     private let manager: CLLocationManager
-    private var background: CLBackgroundActivitySession?
-
-    @Published var lastLocation = CLLocation()
-
+    @Published
+    var lastLocation = CLLocation()
     @Published
     var updatesStarted: Bool = UserDefaults.standard.bool(forKey: "liveUpdatesStarted") {
         didSet { UserDefaults.standard.set(updatesStarted, forKey: "liveUpdatesStarted") }
     }
     
     private init() {
-        self.manager = CLLocationManager()  // Creating a location manager instance is safe to call here in `MainActor`.
-
+        self.manager = CLLocationManager()
     }
     
     func startLocationUpdates() {
@@ -60,22 +39,39 @@ struct ContentView: View {
                 self.updatesStarted = true
                 let updates = CLLocationUpdate.liveUpdates()
                 for try await update in updates {
-                    if !self.updatesStarted { break }  // End location updates by breaking out of the loop.
+                    if !self.updatesStarted { break }
                     if let loc = update.location {
                         self.lastLocation = loc
                         if self.lastLocation.coordinate.latitude != 0.00 {
-                            stopLocationUpdates()
+                            ///
+                            /// Oppdaterer de globale variablene
+                            ///
+                            latitude = self.lastLocation.coordinate.latitude
+                            longitude = self.lastLocation.coordinate.longitude
+                            self.updatesStarted = false
                         }
                     }
                 }
             } catch {
-                self.logger.error("Could not start location updates")
+                debugPrint(error)
             }
             return
         }
     }
+}
+
+struct ContentView: View {
+    @ObservedObject var locationsHandler = LocationsHandler.shared
     
-    func stopLocationUpdates() {
-        self.updatesStarted = false
+    var body: some View {
+        VStack {
+            Spacer()
+            Text("\(latitude) \(longitude)")
+            Spacer()
+        }
+        .onAppear {
+            self.locationsHandler.startLocationUpdates()
+        }
     }
 }
+
