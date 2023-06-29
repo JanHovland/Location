@@ -55,9 +55,9 @@
 			children = (
 				DBA0BAD52A4C6B9C009D92ED /* LocationApp.swift */,
 				DBA0BAD72A4C6B9C009D92ED /* ContentView.swift */,
+				DBFDCC442A4D5DEC00388DF3 /* LocationHandler.swift */,
 				DBA0BAD92A4C6B9D009D92ED /* Assets.xcassets */,
 				DBA0BADB2A4C6B9D009D92ED /* Preview Content */,
-				DBFDCC442A4D5DEC00388DF3 /* LocationHandler.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";

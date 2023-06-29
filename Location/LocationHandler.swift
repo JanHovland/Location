@@ -38,8 +38,8 @@ import CoreLocation
                             ///
                             /// Oppdaterer de globale variablene
                             ///
-                            latitude = self.lastLocation.coordinate.latitude
-                            longitude = self.lastLocation.coordinate.longitude
+//                            latitude = self.lastLocation.coordinate.latitude
+//                            longitude = self.lastLocation.coordinate.longitude
                             self.updatesStarted = false
                         }
                     }
