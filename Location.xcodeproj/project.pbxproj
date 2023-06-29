@@ -11,6 +11,7 @@
 		DBA0BAD82A4C6B9C009D92ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA0BAD72A4C6B9C009D92ED /* ContentView.swift */; };
 		DBA0BADA2A4C6B9D009D92ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBA0BAD92A4C6B9D009D92ED /* Assets.xcassets */; };
 		DBA0BADD2A4C6B9D009D92ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBA0BADC2A4C6B9D009D92ED /* Preview Assets.xcassets */; };
+		DBFDCC452A4D5DEC00388DF3 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFDCC442A4D5DEC00388DF3 /* LocationHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		DBA0BAD72A4C6B9C009D92ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DBA0BAD92A4C6B9D009D92ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBA0BADC2A4C6B9D009D92ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DBFDCC442A4D5DEC00388DF3 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				DBA0BAD72A4C6B9C009D92ED /* ContentView.swift */,
 				DBA0BAD92A4C6B9D009D92ED /* Assets.xcassets */,
 				DBA0BADB2A4C6B9D009D92ED /* Preview Content */,
+				DBFDCC442A4D5DEC00388DF3 /* LocationHandler.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBFDCC452A4D5DEC00388DF3 /* LocationHandler.swift in Sources */,
 				DBA0BAD82A4C6B9C009D92ED /* ContentView.swift in Sources */,
 				DBA0BAD62A4C6B9C009D92ED /* LocationApp.swift in Sources */,
 			);
